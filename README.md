@@ -31,6 +31,7 @@ This project provides a REST API for managing payment transactions. It is design
 
 ## Project Structure
 
+```text
 src/
 ├── main/
 │   ├── java/
@@ -46,6 +47,7 @@ src/
 └── test/
     ├── java/
     └── resources/
+```
 
 ## Running the Application
 
@@ -58,15 +60,21 @@ src/
 
 On Windows:
 
+```powershell
 .\mvnw.cmd clean verify
+```
 
 ### Run
 
+```powershell
 .\mvnw.cmd spring-boot:run
+```
 
 ### Testing
 
+```powershell
 .\mvnw.cmd test
+```
 
 The project uses JUnit and Testcontainers for integration testing.
 
@@ -78,37 +86,48 @@ The application exposes REST endpoints for payment processing.
 
 **Endpoint**
 
+```http
 POST /api/payments
+```
 
 **Content-Type**
 
+```text
 application/json
+```
 
 **Example request**
 
+```json
 {
   "amount": 100.00,
   "currency": "EUR",
   "sender": "Haleema",
   "receiver": "Test"
 }
+```
 
 ### Get all payments
 
 **Endpoint**
 
+```http
 GET /api/payments
+```
 
 ### Get a payment by ID
 
 **Endpoint**
 
+```http
 GET /api/payments/{id}
+```
 
 ## Architecture
 
 The application follows a layered backend architecture:
 
+```text
 Controller
     ↓
 Service
@@ -116,21 +135,26 @@ Service
 Repository
     ↓
 PostgreSQL
+```
 
 This separation keeps API handling, business logic, and data access independent and maintainable.
 
 ## Payment Lifecycle
 
+```text
 PENDING
    ↓
 PROCESSING
    ↓
 COMPLETED
+```
 
 A payment can also transition to:
 
+```text
 FAILED
 CANCELLED
+```
 
 ## Testing
 
