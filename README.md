@@ -76,10 +76,15 @@ The application exposes REST endpoints for payment processing.
 
 ### Create a payment
 
-POST /api/payments
-Content-Type: application/json
+**Endpoint**
 
-Example request:
+POST /api/payments
+
+**Content-Type**
+
+application/json
+
+**Example request**
 
 {
   "amount": 100.00,
@@ -90,9 +95,13 @@ Example request:
 
 ### Get all payments
 
+**Endpoint**
+
 GET /api/payments
 
 ### Get a payment by ID
+
+**Endpoint**
 
 GET /api/payments/{id}
 
@@ -129,9 +138,6 @@ The project has been tested using Maven, JUnit, and Testcontainers.
 
 The integration environment uses Docker to provide the required containerized services.
 
-## Author
-
-Halimatou Diallo
 ## Author
 
 Halimatou Diallo
