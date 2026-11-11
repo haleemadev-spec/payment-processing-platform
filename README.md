@@ -154,6 +154,3 @@ This separation keeps API handling, business logic, and data access independent 
 **Halimatou Diallo**
 
 GitHub: [@haleemadev-spec](https://github.com/haleemadev-spec)
-## Author
-
-Halimatou Diallo
