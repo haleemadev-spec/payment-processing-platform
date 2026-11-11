@@ -1,33 +1,36 @@
 # Payment Processing Platform
 
-A backend payment processing platform built with Java and Spring Boot.
+A backend payment processing application built with Java 21 and Spring Boot.
 
 ## Overview
 
-This project provides a REST API for managing payment transactions. It is designed with a focus on clean backend architecture, data persistence, security, containerization, and automated testing.
+Payment Processing Platform is a RESTful backend application designed to manage payment transactions. It provides endpoints for creating payments, retrieving payment records, and tracking payment statuses.
+
+The project focuses on clean backend architecture, data persistence, security configuration, containerization, and automated testing.
 
 ## Tech Stack
 
-- Java 21
-- Spring Boot 3.5.3
-- Spring Data JPA
-- PostgreSQL
-- Spring Security
-- Docker
-- Testcontainers
-- JUnit
-- Maven
+- **Java 21**
+- **Spring Boot 3.5.3**
+- **Spring Data JPA**
+- **Spring Security**
+- **PostgreSQL**
+- **Redis**
+- **Docker & Docker Compose**
+- **Maven**
+- **JUnit 5**
+- **Testcontainers**
 
 ## Features
 
 - Payment creation and management
 - Payment status management
 - REST API endpoints
-- PostgreSQL persistence
+- PostgreSQL data persistence
+- Request validation
 - Spring Security configuration
 - Docker-based development environment
 - Integration testing with Testcontainers
-- Request validation
 
 ## Project Structure
 
@@ -43,7 +46,6 @@ src/
 │   │       └── service/
 │   └── resources/
 │       └── application.properties
-│
 └── test/
     ├── java/
     └── resources/
@@ -60,43 +62,45 @@ src/
 
 On Windows:
 
-```powershell
+```bash
 .\mvnw.cmd clean verify
 ```
 
 ### Run
 
-```powershell
+On Windows:
+
+```bash
 .\mvnw.cmd spring-boot:run
 ```
 
-### Testing
+### Start Docker Services
 
-```powershell
+```bash
+docker compose up -d
+```
+
+## Testing
+
+Run the tests using Maven:
+
+```bash
 .\mvnw.cmd test
 ```
 
-The project uses JUnit and Testcontainers for integration testing.
+The project uses JUnit and Testcontainers for its testing environment.
 
-## API
+## API Documentation
 
-The application exposes REST endpoints for payment processing.
+The application exposes REST endpoints for payment management.
 
-### Create a payment
-
-**Endpoint**
+### Create a Payment
 
 ```http
 POST /api/payments
 ```
 
-**Content-Type**
-
-```text
-application/json
-```
-
-**Example request**
+Example request:
 
 ```json
 {
@@ -107,21 +111,27 @@ application/json
 }
 ```
 
-### Get all payments
-
-**Endpoint**
+### Get All Payments
 
 ```http
 GET /api/payments
 ```
 
-### Get a payment by ID
-
-**Endpoint**
+### Get Payment by ID
 
 ```http
 GET /api/payments/{id}
 ```
+
+## Payment Lifecycle
+
+The application defines the following payment statuses:
+
+- `PENDING`
+- `PROCESSING`
+- `COMPLETED`
+- `FAILED`
+- `CANCELLED`
 
 ## Architecture
 
@@ -139,29 +149,11 @@ PostgreSQL
 
 This separation keeps API handling, business logic, and data access independent and maintainable.
 
-## Payment Lifecycle
+## Author
 
-```text
-PENDING
-   ↓
-PROCESSING
-   ↓
-COMPLETED
-```
+**Halimatou Diallo**
 
-A payment can also transition to:
-
-```text
-FAILED
-CANCELLED
-```
-
-## Testing
-
-The project has been tested using Maven, JUnit, and Testcontainers.
-
-The integration environment uses Docker to provide the required containerized services.
-
+GitHub: [@haleemadev-spec](https://github.com/haleemadev-spec)
 ## Author
 
 Halimatou Diallo
