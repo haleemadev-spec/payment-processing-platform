@@ -24,7 +24,7 @@ The project focuses on clean backend architecture, data persistence, security co
 ## Features
 
 - Payment creation and management
-- Payment status management
+- Payment status model (enum)
 - REST API endpoints
 - PostgreSQL data persistence
 - Request validation
